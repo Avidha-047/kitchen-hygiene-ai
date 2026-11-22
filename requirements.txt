@@ -1,0 +1,7 @@
+ultralytics>=8.1
+lap
+opencv-python
+numpy
+pandas
+matplotlib
+nbformat

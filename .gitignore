@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# pretrained base weights download automatically
+yolov8n.pt
+yolov8n-pose.pt
+# local data and outputs
+videos/
+output/
+runs/
+dataset/
+*.db

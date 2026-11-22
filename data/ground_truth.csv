@@ -1,0 +1,20 @@
+clip,event,start_s,end_s,person,note
+S01.mp4,HANDWASH_COMPLIANT,,,A,soap and lather visible
+S02.mp4,HANDWASH_VIOLATION,,,B,went straight to counter
+S02.mp4,VEGETABLE_WASH_VIOLATION,,,B,took carrots from basket without washing them (checked on video)
+S03.mp4,HANDWASH_VIOLATION,,,A,rubbed with water only, no soap (checked on video)
+S03.mp4,VEGETABLE_WASH_VIOLATION,,,A,took carrots from basket without washing them (checked on video)
+S04.mp4,VEGETABLE_WASH_COMPLIANT,,,A,
+S04.mp4,HANDWASH_VIOLATION,,,A,rinsed carrots but never washed hands with soap (checked on video)
+S05.mp4,VEGETABLE_WASH_VIOLATION,,,A,
+S05.mp4,HANDWASH_VIOLATION,,,A,no hand wash before chopping (checked on video)
+S07.mp4,DIRTY_UTENSIL_VIOLATION,,,A,used rack
+S07.mp4,HANDWASH_VIOLATION,,,A,handled food without washing hands (checked on video)
+S09.mp4,CROSS_CONTAMINATION_RISK,,,A,
+S09.mp4,HANDWASH_VIOLATION,,,A,never washed hands (checked on video)
+S10.mp4,PPE_COMPLIANT,,,A,
+S11.mp4,PPE_VIOLATION,,,B,no cap
+S12.mp4,PEST_DETECTED,,,,cockroach (the only clip with a cockroach)
+H1.mp4,HANDWASH_COMPLIANT,,,A,two cooks
+H1.mp4,HANDWASH_VIOLATION,,,B,two cooks
+H2.mp4,HANDWASH_COMPLIANT,,,A,meant to be blocked; generator did not fully block the sink

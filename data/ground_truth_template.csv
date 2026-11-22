@@ -1,0 +1,24 @@
+clip,event,start_s,end_s,person,note
+S01.mp4,HANDWASH_COMPLIANT,,,A,soap and lather visible
+S02.mp4,HANDWASH_VIOLATION,,,B,went straight to counter
+S03.mp4,HANDWASH_VIOLATION,,,A,rubbed without soap
+S04.mp4,VEGETABLE_WASH_COMPLIANT,,,A,
+S05.mp4,VEGETABLE_WASH_VIOLATION,,,A,
+S06.mp4,DIRTY_UTENSIL_COMPLIANT,,,A,clean rack
+S07.mp4,DIRTY_UTENSIL_VIOLATION,,,A,used rack
+S08.mp4,CROSS_CONTAMINATION_COMPLIANT,,,A,washed between
+S09.mp4,CROSS_CONTAMINATION_RISK,,,A,
+S10.mp4,PPE_COMPLIANT,,,A,
+S11.mp4,PPE_VIOLATION,,,B,no cap
+S12.mp4,PEST_DETECTED,,,,cockroach
+S13.mp4,PEST_DETECTED,,,,rat
+S14.mp4,SURFACE_CLEANED,,,,
+S15.mp4,SURFACE_NOT_CLEANED,,,,
+S16.mp4,OIL_REUSE_FLAG,,,A,
+H1.mp4,HANDWASH_COMPLIANT,,,A,two cooks
+H1.mp4,HANDWASH_VIOLATION,,,B,two cooks
+H2.mp4,HANDWASH_COMPLIANT,,,A,occluded wash
+H3.mp4,HANDWASH_COMPLIANT,,,A,low light
+H4.mp4,NONE,,,,look-alike on counter
+H5.mp4,PEST_DETECTED,,,,fly about 1 s
+H6.mp4,HANDWASH_VIOLATION,,,A,phone after washing
