@@ -20,7 +20,7 @@ A hygiene inspector visits now and then; the rules apply every minute. This prot
 | Vegetables washed | Basket → sink → board, in that order |
 | Dirty utensils | A hand at the used-utensil tray, then the stove, with no sink visit in between |
 | Raw → cooked food | Raw-food zone, then cooked-food zone, with no wash in between |
-| Pests | Fine-tuned cockroach detector; a pest must persist and **move** to count |
+| Pests | Fine-tuned cockroach detector; a pest must persist and **move** to count, outside look-alike spots found by calibrating on the empty kitchen |
 | Head cover, spills, reused oil | Rule hooks ready; need extra trained classes |
 
 When the camera cannot see enough (a cook already in the room when the video starts, or someone blocking the sink), the system says **"uncertain"** instead of blaming anyone.
@@ -84,7 +84,7 @@ Thresholds were tuned on half the scenes (precision-recall sweep, best F1) and t
 **Locally**
 ```bash
 pip install -r requirements.txt
-python tests/test_engine.py          # 20 scripted scenarios for the reasoning layer, no video needed
+python tests/test_engine.py          # 22 scripted scenarios for the reasoning layer, no video needed
 ```
 ```python
 from kitchen_hygiene.config import Config
@@ -100,7 +100,7 @@ Zones are marked once per camera position as polygons in normalised coordinates.
 
 ```
 kitchen_hygiene/   perception, rule engine, Bayesian soap check, pipeline, evaluation, dashboard
-tests/             20 scripted scenarios for the reasoning layer
+tests/             22 scripted scenarios for the reasoning layer
 notebooks/         full Colab notebook and the live-demo notebook
 tools/             VOC→YOLO conversion, joining clip parts, building the scenario video
 data/              answer key for the 12 scenes and an empty template

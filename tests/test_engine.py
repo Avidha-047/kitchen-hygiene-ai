@@ -244,6 +244,26 @@ def test_static_lookalike_is_not_a_pest():
     assert any(e.etype == "PEST_STATIC_IGNORED" for e in s.eng.events)
 
 
+def test_calibrated_lookalike_spot_is_ignored():
+    s = Sim()
+    s.eng.cfg.pest_ignore_boxes = [(0.30, 0.50, 0.45, 0.65)]          # a spot flagged in the empty kitchen
+    W, H = s.eng.w, s.eng.h
+    jitter = lambda k: [ObjObs("cockroach", 0.7, (0.36 * W + 6 * (k % 3), 0.56 * H, 0.38 * W + 6 * (k % 3), 0.58 * H))]
+    s.run(6, lambda k: [], jitter)                                     # jittery fake inside the spot
+    s.run(4, lambda k: [], lambda k: [ObjObs("cockroach", 0.6, (0.6 * W + 15 * k, 0.8 * H, 0.62 * W + 15 * k, 0.82 * H))])
+    fs = s.done()
+    assert len(find(fs, "PEST_DETECTED")) == 1                          # only the real, moving one outside the spot
+    assert s.eng.pest_calibration_skips > 0
+
+
+def test_calibration_clusters_repeated_spots_only():
+    from kitchen_hygiene.calibrate import cluster_spots
+    stove = (0.70, 0.70, 0.74, 0.74)
+    per_image = [[stove], [(0.705, 0.70, 0.745, 0.745)], [stove, (0.20, 0.30, 0.22, 0.32)]]   # one-off box in image 3
+    spots = cluster_spots(per_image, min_votes=2)
+    assert len(spots) == 1 and spots[0][0] < 0.70 and spots[0][2] > 0.745
+
+
 def test_spill_not_cleaned():
     s = Sim()
     spill = lambda k: [ObjObs("spill", 0.7, (450, 450, 520, 500))]

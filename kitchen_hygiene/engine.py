@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 import math
 
+from .calibrate import in_ignored_spot
 from .geometry import Zones, overlap_frac
 from .bayes import p_soap, explain
 from .config import severity_of
@@ -111,6 +112,7 @@ class HygieneEngine:
         self.cfg = cfg
         self.zones = Zones(cfg.zones, width, height)
         self.w, self.h = width, height
+        self.pest_calibration_skips = 0
         self.dt = 1.0 / cfg.sample_fps
         self.people = {}
         self.alias = {}                 # tracker id -> person id (re-linking after a lost track)
@@ -464,6 +466,9 @@ class HygieneEngine:
         for o in fobs.objects:
             kind = cfg.pest_classes.get(o.cls)
             if not kind:
+                continue
+            if cfg.pest_ignore_boxes and in_ignored_spot(o.centre, (self.w, self.h), cfg.pest_ignore_boxes):
+                self.pest_calibration_skips += 1          # a look-alike spot found in the empty kitchen
                 continue
             c = (o.centre[0] / self.w, o.centre[1] / self.w)
             best, best_d = None, None

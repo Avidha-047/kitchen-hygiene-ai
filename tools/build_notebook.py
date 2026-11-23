@@ -134,6 +134,14 @@ cfg.wash_min_s = 6           # AI clips are 5-8 s each, so a 20 s wash cannot be
 custom = f'{BASE}/runs/kitchen416/weights/best.pt'
 cfg.custom_models = [custom] if os.path.exists(custom) else []
 print('custom model:', cfg.custom_models or 'none (pests / PPE / spill rules need it)')
+
+# Empty-kitchen calibration: spots the pest detector "finds" in the empty starting frame of 2+ clips are look-alikes
+from kitchen_hygiene.calibrate import calibrate_pests
+cfg.pest_ignore_boxes, calib = calibrate_pests(sorted(glob.glob(f'{VIDEOS}/*.mp4')), cfg)
+print('look-alike spots ignored by the pest detector:', len(cfg.pest_ignore_boxes))
+if calib is not None:
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(9, 5)); plt.imshow(calib[..., ::-1]); plt.axis('off'); plt.title('Empty-kitchen calibration'); plt.show()
 cfg.save(f'{OUT}/config.json')
 
 from kitchen_hygiene.pipeline import process_folder

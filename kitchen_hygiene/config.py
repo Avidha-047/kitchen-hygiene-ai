@@ -58,6 +58,7 @@ class Config:
     surface_limit_s: float = 30.0                # spill must be wiped within this
     pest_merge_gap_s: float = 3.0                # sightings closer than this merge into one event
     pest_min_frames: int = 2                     # a single-frame blip is not a pest
+    pest_ignore_boxes: list = field(default_factory=list)  # look-alike spots from empty-kitchen calibration, (x1,y1,x2,y2) as fractions
     pest_min_move: float = 0.03                  # a pest must move at least this fraction of the frame width; static look-alikes are ignored
     pest_link_dist: float = 0.08                 # detections closer than this (fraction of width) belong to the same moving pest
     history_grace_s: float = 1.0                 # someone already in view this soon after the video starts has an unknown history
