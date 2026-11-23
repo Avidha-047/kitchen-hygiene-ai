@@ -74,6 +74,10 @@ Thresholds were tuned on half the scenes (precision-recall sweep, best F1) and t
 
 **What changed after the first run** (F1 0.19): people never seen arriving are now "uncertain" instead of blamed; a pest has to move to count; and the answer key was re-checked against the videos. These fixes were made once, then the system was frozen.
 
+## Web app
+
+`app.py` is a Gradio web app: upload a kitchen clip (or pick a sample from `samples/`) and get the verdict, a findings table, evidence frames, the annotated video and the reasoning behind every decision. Run it with `python app.py`, or host it free on Hugging Face Spaces.
+
 ## Run it
 
 **Google Colab (easiest)**
@@ -105,6 +109,7 @@ notebooks/         full Colab notebook and the live-demo notebook
 tools/             VOC→YOLO conversion, joining clip parts, building the scenario video
 data/              answer key for the 12 scenes and an empty template
 models/            trained cockroach detector (best.pt)
+app.py             Gradio web app (samples/ holds demo clips)
 docs/images/       architecture, training curves, predictions, demo frame
 ```
 

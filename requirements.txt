@@ -1,7 +1,8 @@
 ultralytics>=8.1
 lap
-opencv-python
+opencv-python-headless
 numpy
 pandas
 matplotlib
 nbformat
+gradio
