@@ -72,7 +72,7 @@ def build_dashboard(findings, out_path, title="Kitchen Hygiene Monitor", period=
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body{{font-family:Inter,Segoe UI,Arial,sans-serif;background:#F4F1EA;color:#1F2A26;margin:0;padding:28px}}
-h1{{font-size:26px;margin:0 0 4px}} h2{{font-size:19px;margin:28px 0 10px}}
+h1{{font-size:26px;margin:0 0 4px;color:#1F2A26 !important}} h2{{font-size:19px;margin:28px 0 10px;color:#1F2A26 !important}}
 .muted{{color:#5B6762;font-size:13px}}
 .cards{{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}}
 .card{{background:#FBF9F4;border:1px solid #D9D2C2;border-radius:12px;padding:14px 18px;min-width:150px}}
